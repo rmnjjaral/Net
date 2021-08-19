@@ -1,6 +1,7 @@
 
 int nDots = 100;
 PVector[] dots;
+PImage orangeImg;
 
 void setup () {
   size(600, 600);
@@ -9,8 +10,11 @@ void setup () {
   for (int i = 0; i < nDots; i++) {
     dots[i] = new PVector(random(0, width), random(0, height));
   }
-
+  
+  orangeImg = loadImage("orange.png");
+  
   noStroke();
+  
 }
 
 void draw () {
@@ -48,6 +52,8 @@ void renderDots() {
 
     fill(127, 100);
     ellipse(dots[i].x, dots[i].y, 33, 33);
+    
+    image(orangeImg, dots[i].x, dots[i].y);
   }
   stroke(0);
   for (int i = 0; i < nDots; i++) {
